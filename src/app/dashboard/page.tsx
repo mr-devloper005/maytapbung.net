@@ -56,8 +56,8 @@ const recentActivity = [
     id: 1,
     type: "comment",
     user: "Sarah Wilson",
-    action: "commented on your article",
-    target: "Building Modern Web Apps",
+    action: "requested a call about",
+    target: "Downtown Studio Loft listing",
     time: "5 min ago",
     avatar: "/placeholder.svg?height=40&width=40",
   },
@@ -65,8 +65,8 @@ const recentActivity = [
     id: 2,
     type: "like",
     user: "Mike Chen",
-    action: "liked your listing",
-    target: "Tech Solutions Inc.",
+    action: "saved your listing",
+    target: "Harbor Logistics Partners",
     time: "15 min ago",
     avatar: "/placeholder.svg?height=40&width=40",
   },
@@ -74,7 +74,7 @@ const recentActivity = [
     id: 3,
     type: "follow",
     user: "Emily Johnson",
-    action: "started following you",
+    action: "followed your brand page",
     target: "",
     time: "1 hour ago",
     avatar: "/placeholder.svg?height=40&width=40",
@@ -83,8 +83,8 @@ const recentActivity = [
     id: 4,
     type: "message",
     user: "Alex Rivera",
-    action: "sent you a message about",
-    target: "2019 Honda Civic",
+    action: "asked about availability for",
+    target: "Artisan Coffee House",
     time: "2 hours ago",
     avatar: "/placeholder.svg?height=40&width=40",
   },
@@ -256,16 +256,17 @@ export default function DashboardPage() {
   )
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-neutral-50 text-neutral-900">
       <NavbarShell />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
-            <p className="text-muted-foreground mt-1">
-              Welcome back, {user?.name || "User"}! Here's what's happening.
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#ff8c00]">Workspace</p>
+            <h1 className="text-3xl font-bold tracking-tight text-neutral-900">Dashboard</h1>
+            <p className="mt-1 text-neutral-600">
+              Welcome back, {user?.name || "User"}! Here is a snapshot of your listings and inquiries.
             </p>
           </div>
           <div className="flex gap-3">
@@ -281,8 +282,8 @@ export default function DashboardPage() {
             </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button>
-                  <Plus className="h-4 w-4 mr-2" />
+                <Button className="rounded-full bg-[#ff8c00] font-semibold text-white hover:bg-[#e67e00]">
+                  <Plus className="mr-2 h-4 w-4" />
                   Create New
                 </Button>
               </DropdownMenuTrigger>
@@ -318,7 +319,7 @@ export default function DashboardPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -355,7 +356,7 @@ export default function DashboardPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm"
             >
               <div className="flex items-center justify-between mb-6">
                 <div>
@@ -433,7 +434,7 @@ export default function DashboardPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-card rounded-xl border border-border"
+              className="rounded-2xl border border-neutral-200 bg-white shadow-sm"
             >
               <Tabs defaultValue="articles" className="w-full">
                 <div className="px-6 pt-6">
@@ -659,7 +660,7 @@ export default function DashboardPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm"
             >
               <h2 className="text-lg font-semibold text-foreground mb-4">
                 Content Distribution
@@ -698,7 +699,7 @@ export default function DashboardPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm"
             >
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-lg font-semibold text-foreground">
@@ -737,7 +738,7 @@ export default function DashboardPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm"
             >
               <h2 className="text-lg font-semibold text-foreground mb-4">
                 Quick Actions

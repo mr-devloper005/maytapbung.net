@@ -169,7 +169,7 @@ export default function NewArticlePage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-neutral-50">
       <NavbarShell />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -182,9 +182,10 @@ export default function NewArticlePage() {
               </Link>
             </Button>
             <div>
-              <h1 className="text-2xl font-bold text-foreground">New Article</h1>
-              <p className="text-sm text-muted-foreground">
-                Create and publish your article
+              <h1 className="text-2xl font-bold text-neutral-900">New article</h1>
+              <p className="text-sm text-neutral-600">
+                Draft with SEO-friendly structure, then publish to the same warm neutral shell readers see on the
+                public blog.
               </p>
             </div>
           </div>
@@ -199,7 +200,11 @@ export default function NewArticlePage() {
                 Preview
               </Link>
             </Button>
-            <Button onClick={handlePublish} disabled={isPublishing}>
+            <Button
+              onClick={handlePublish}
+              disabled={isPublishing}
+              className="rounded-full bg-[#ff8c00] text-white hover:bg-[#e67e00]"
+            >
               {isPublishing ? "Publishing..." : "Publish"}
             </Button>
           </div>
@@ -211,7 +216,7 @@ export default function NewArticlePage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm"
             >
               {/* Title */}
               <div className="space-y-2 mb-6">
@@ -290,7 +295,7 @@ export default function NewArticlePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm"
             >
               <Label className="mb-4 block">Cover Image</Label>
               {coverImage ? (
@@ -342,7 +347,7 @@ export default function NewArticlePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm"
             >
               <Label className="mb-4 block">Category</Label>
               <Select value={category} onValueChange={setCategory}>
@@ -364,7 +369,7 @@ export default function NewArticlePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm"
             >
               <Label className="mb-4 block">Tags</Label>
               <div className="flex gap-2 mb-4">
@@ -405,7 +410,7 @@ export default function NewArticlePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm"
             >
               <Label className="mb-4 block">Publishing Options</Label>
               <div className="space-y-4">
@@ -415,11 +420,11 @@ export default function NewArticlePage() {
                 </div>
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-muted-foreground">Visibility</span>
-                  <span className="text-foreground">Public</span>
+                  <span className="text-neutral-900">Public</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-muted-foreground">Comments</span>
-                  <span className="text-foreground">Enabled</span>
+                  <span className="text-neutral-900">Enabled</span>
                 </div>
               </div>
             </motion.div>

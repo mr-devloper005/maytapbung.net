@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
@@ -141,7 +141,7 @@ export default function DashboardAdsPage() {
 
       <div className="grid gap-4">
         {userAds.length > 0 && (
-          <Card className="border-border bg-card">
+          <Card className="border-neutral-200 bg-white shadow-sm">
             <CardContent className="p-4 flex items-center gap-3">
               <Checkbox
                 checked={allSelected}
@@ -153,7 +153,7 @@ export default function DashboardAdsPage() {
         )}
 
         {userAds.map((ad) => (
-          <Card key={ad.id} className="border-border bg-card transition-transform hover:-translate-y-1">
+          <Card key={ad.id} className="border-neutral-200 bg-white shadow-sm transition-transform hover:-translate-y-1">
             <CardContent className="p-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div className="flex items-start gap-3">
                 <Checkbox
@@ -192,7 +192,7 @@ export default function DashboardAdsPage() {
                   ) : (
                     <>
                       <h2 className="text-lg font-semibold text-foreground">{ad.title}</h2>
-                      <p className="text-sm text-muted-foreground">{ad.location} · ${ad.price.toLocaleString()}</p>
+                      <p className="text-sm text-muted-foreground">{ad.location} � ${ad.price.toLocaleString()}</p>
                     </>
                   )}
                 </div>
@@ -241,7 +241,7 @@ export default function DashboardAdsPage() {
           </Card>
         ))}
         {userAds.length === 0 && (
-          <Card className="border-border bg-card">
+          <Card className="border-neutral-200 bg-white shadow-sm">
             <CardContent className="p-8 text-center text-sm text-muted-foreground">
               No ads yet. Create your first ad to see it here.
             </CardContent>

@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
@@ -145,7 +145,7 @@ export default function DashboardArticlesPage() {
 
       <div className="grid gap-4">
         {userArticles.length > 0 && (
-          <Card className="border-border bg-card">
+          <Card className="border-neutral-200 bg-white shadow-sm">
             <CardContent className="p-4 flex items-center gap-3">
               <Checkbox
                 checked={allSelected}
@@ -157,7 +157,7 @@ export default function DashboardArticlesPage() {
         )}
 
         {userArticles.map((article) => (
-          <Card key={article.id} className="border-border bg-card transition-transform hover:-translate-y-1">
+          <Card key={article.id} className="border-neutral-200 bg-white shadow-sm transition-transform hover:-translate-y-1">
             <CardContent className="p-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div className="flex items-start gap-3">
                 <Checkbox
@@ -196,7 +196,7 @@ export default function DashboardArticlesPage() {
                   ) : (
                     <>
                       <h2 className="text-lg font-semibold text-foreground">{article.title}</h2>
-                      <p className="text-sm text-muted-foreground">{article.publishedAt} · {article.readTime} min read</p>
+                      <p className="text-sm text-muted-foreground">{article.publishedAt} � {article.readTime} min read</p>
                     </>
                   )}
                 </div>
@@ -244,7 +244,7 @@ export default function DashboardArticlesPage() {
           </Card>
         ))}
         {userArticles.length === 0 && (
-          <Card className="border-border bg-card">
+          <Card className="border-neutral-200 bg-white shadow-sm">
             <CardContent className="p-8 text-center text-sm text-muted-foreground">
               No articles yet. Create your first article to see it here.
             </CardContent>

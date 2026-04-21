@@ -107,30 +107,30 @@ export default async function ProfileDetailPage({ params }: { params: Promise<{ 
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-neutral-50">
       <NavbarShell />
       <main className="mx-auto w-full max-w-6xl px-4 pb-16 pt-10 sm:px-6 lg:px-8">
         <SchemaJsonLd data={breadcrumbData} />
-        <section className="rounded-3xl border border-border/60 bg-white/90 p-8 shadow-sm md:p-12">
+        <section className="rounded-3xl border border-neutral-200 bg-white p-8 shadow-sm md:p-12">
           <div className="grid gap-8 md:grid-cols-[200px_1fr] md:items-start">
             <div className="flex justify-center md:justify-start">
-              <div className="relative h-36 w-36 overflow-hidden rounded-full border border-border/70 bg-muted">
+              <div className="relative h-36 w-36 overflow-hidden rounded-full border border-neutral-200 bg-neutral-100">
                 {logoUrl ? (
                   <ContentImage src={logoUrl} alt={post.title} fill className="object-cover" sizes="144px" intrinsicWidth={144} intrinsicHeight={144} />
                 ) : (
-                  <div className="flex h-full w-full items-center justify-center text-3xl font-semibold text-muted-foreground">
+                  <div className="flex h-full w-full items-center justify-center text-3xl font-semibold text-neutral-500">
                     {post.title.slice(0, 1).toUpperCase()}
                   </div>
                 )}
               </div>
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-foreground sm:text-4xl">{brandName}</h1>
+              <h1 className="text-3xl font-bold text-neutral-900 sm:text-4xl">{brandName}</h1>
               {domain ? (
-                <p className="mt-1 text-sm font-medium text-muted-foreground">{domain}</p>
+                <p className="mt-1 text-sm font-medium text-neutral-600">{domain}</p>
               ) : null}
               <article
-                className="article-content prose prose-slate mt-6 max-w-2xl text-base leading-relaxed prose-p:my-4 prose-a:text-primary prose-a:underline prose-strong:font-semibold"
+                className="article-content prose prose-slate mt-6 max-w-2xl text-base leading-relaxed prose-p:my-4 prose-a:text-[#ff8c00] prose-a:underline prose-strong:font-semibold"
                 dangerouslySetInnerHTML={{ __html: descriptionHtml }}
               />
               {website ? (
@@ -150,7 +150,7 @@ export default async function ProfileDetailPage({ params }: { params: Promise<{ 
           <section className="mt-12">
             <div className="flex items-center justify-between">
               <h2 className="text-xl font-semibold text-foreground">Suggested articles</h2>
-              <Link href="/articles" className="text-sm font-medium text-primary hover:underline">
+              <Link href="/articles" className="text-sm font-medium text-[#ff8c00] hover:underline">
                 View all
               </Link>
             </div>
@@ -164,7 +164,7 @@ export default async function ProfileDetailPage({ params }: { params: Promise<{ 
                 />
               ))}
             </div>
-            <nav className="mt-6 rounded-2xl border border-border bg-card/60 p-4">
+            <nav className="mt-6 rounded-2xl border border-neutral-200 bg-white/95 p-4 shadow-sm">
               <p className="text-sm font-semibold text-foreground">Related links</p>
               <ul className="mt-2 space-y-2 text-sm">
                 {suggestedArticles.slice(0, 3).map((article) => (
@@ -178,7 +178,7 @@ export default async function ProfileDetailPage({ params }: { params: Promise<{ 
                   </li>
                 ))}
                 <li>
-                  <Link href="/profile" className="text-primary underline-offset-4 hover:underline">
+                  <Link href="/profile" className="text-[#ff8c00] underline-offset-4 hover:underline">
                     Browse all profiles
                   </Link>
                 </li>

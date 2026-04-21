@@ -4,6 +4,7 @@ import { SITE_CONFIG, type TaskKey } from '@/lib/site-config'
 import { siteContent } from '@/config/site.content'
 import { getFactoryState } from '@/design/factory/get-factory-state'
 import { FOOTER_OVERRIDE_ENABLED, FooterOverride } from '@/overrides/footer'
+import { FooterNewsletter } from '@/components/shared/footer-newsletter'
 
 const taskIcons: Record<TaskKey, any> = {
   article: FileText,
@@ -26,16 +27,9 @@ const footerLinks = {
   })),
   company: [
     { name: 'About', href: '/about' },
-    { name: 'Team', href: '/team' },
     { name: 'Careers', href: '/careers' },
-    { name: 'Blog', href: '/blog' },
+    { name: 'Contact', href: '/contact' },
     { name: 'Press', href: '/press' },
-  ],
-  resources: [
-    { name: 'Help Center', href: '/help' },
-    { name: 'Community', href: '/community' },
-    { name: 'Developers', href: '/developers' },
-    { name: 'Status', href: '/status' },
   ],
   legal: [
     { name: 'Privacy', href: '/privacy' },
@@ -62,19 +56,58 @@ export function Footer() {
 
   if (recipe.footer === 'minimal-footer') {
     return (
-      <footer className="border-t border-[#d7deca] bg-[#f4f6ef] text-[#1f2617]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-8 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <div>
-            <p className="text-lg font-semibold">{SITE_CONFIG.name}</p>
-            <p className="mt-1 text-sm text-[#56604b]">{SITE_CONFIG.description}</p>
+      <footer className="border-t border-neutral-200 bg-neutral-50 text-neutral-900">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-6 border-b border-neutral-200 pb-10 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#ff8c00]">Newsletter</p>
+              <h3 className="mt-2 text-2xl font-bold tracking-tight">Join our listing digest</h3>
+              <p className="mt-2 max-w-md text-sm text-neutral-600">Curated directory updates, new categories, and tips for growing your presence.</p>
+            </div>
+            <FooterNewsletter />
           </div>
-          <div className="flex flex-wrap gap-3">
-            {enabledTasks.slice(0, 5).map((task) => (
-              <Link key={task.key} href={task.route} className="rounded-lg border border-[#d7deca] bg-white px-3 py-2 text-sm font-medium text-[#1f2617] hover:bg-[#ebefdf]">
-                {task.label}
+          <div className="grid gap-10 py-10 sm:grid-cols-2 lg:grid-cols-3">
+            <div>
+              <Link href="/" className="flex items-center gap-2">
+                <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg border border-neutral-200 bg-white p-1">
+                  <img src="/favicon.png?v=20260401" alt={`${SITE_CONFIG.name} mark`} width="40" height="40" className="h-full w-full object-contain" />
+                </div>
+                <span className="text-lg font-bold">{SITE_CONFIG.name}</span>
               </Link>
-            ))}
+              <p className="mt-4 text-sm leading-relaxed text-neutral-600">{SITE_CONFIG.description}</p>
+              <p className="mt-3 text-sm text-neutral-500">{SITE_CONFIG.domain}</p>
+            </div>
+            <div>
+              <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Listings</h4>
+              <ul className="mt-4 space-y-2 text-sm">
+                {enabledTasks.slice(0, 6).map((task) => (
+                  <li key={task.key}>
+                    <Link href={task.route} className="text-neutral-700 hover:text-[#ff8c00]">
+                      {task.label}
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link href="/search" className="text-neutral-700 hover:text-[#ff8c00]">
+                    Search
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Company</h4>
+              <ul className="mt-4 space-y-2 text-sm">
+                {footerLinks.company.map((item) => (
+                  <li key={item.name}>
+                    <Link href={item.href} className="text-neutral-700 hover:text-[#ff8c00]">
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
+          <div className="border-t border-neutral-200 pt-6 text-center text-sm text-neutral-500">&copy; {new Date().getFullYear()} {SITE_CONFIG.name}. All rights reserved.</div>
         </div>
       </footer>
     )
@@ -103,20 +136,12 @@ export function Footer() {
                 </Link>
               ) : null}
             </div>
-            <div className="grid gap-6 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-2">
               <div>
                 <h3 className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">Surfaces</h3>
                 <ul className="mt-4 space-y-3 text-sm text-slate-200">
                   {footerLinks.platform.map((item: any) => (
                     <li key={item.name}><Link href={item.href} className="flex items-center gap-2 hover:text-white">{item.icon ? <item.icon className="h-4 w-4" /> : null}{item.name}</Link></li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">Resources</h3>
-                <ul className="mt-4 space-y-3 text-sm text-slate-200">
-                  {footerLinks.resources.map((item) => (
-                    <li key={item.name}><Link href={item.href} className="hover:text-white">{item.name}</Link></li>
                   ))}
                 </ul>
               </div>
@@ -176,7 +201,7 @@ export function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] text-slate-950">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr_0.8fr]">
+        <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr]">
           <div>
             <Link href="/" className="flex items-center gap-3">
               <div className="h-11 w-11 overflow-hidden rounded-2xl border border-slate-200 bg-white p-1 shadow-sm">
@@ -189,7 +214,7 @@ export function Footer() {
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-7 text-slate-600">{SITE_CONFIG.description}</p>
           </div>
-          {(['platform', 'company', 'resources', 'legal'] as const).map((section) => (
+          {(['platform', 'company', 'legal'] as const).map((section) => (
             <div key={section}>
               <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">{section}</h3>
               <ul className="mt-5 space-y-3 text-sm text-slate-600">

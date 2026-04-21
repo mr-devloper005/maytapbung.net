@@ -38,14 +38,14 @@ export default function BookmarkCollectionDetailPage() {
 
   if (!collection) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-neutral-50">
         <NavbarShell />
         <main className="mx-auto max-w-4xl px-4 py-20 sm:px-6 lg:px-8">
-          <Card className="border-border bg-card">
+          <Card className="border-neutral-200 bg-white shadow-sm">
             <CardContent className="p-10 text-center">
-              <h1 className="text-2xl font-semibold text-foreground">Collection not found</h1>
-              <p className="mt-2 text-muted-foreground">Try exploring other bookmark collections.</p>
-              <Button className="mt-6" asChild>
+              <h1 className="text-2xl font-semibold text-neutral-900">Collection not found</h1>
+              <p className="mt-2 text-neutral-600">That folder may have been removed—browse the rest of your library.</p>
+              <Button className="mt-6 rounded-full bg-[#ff8c00] text-white hover:bg-[#e67e00]" asChild>
                 <Link href="/sbm/collections">Back to collections</Link>
               </Button>
             </CardContent>
@@ -57,27 +57,27 @@ export default function BookmarkCollectionDetailPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-neutral-50">
       <NavbarShell />
 
       <main>
-        <section className="border-b border-border bg-secondary/30">
+        <section className="border-b border-neutral-200 bg-white [background-image:radial-gradient(circle_at_18%_0%,rgba(255,140,0,0.08),transparent_48%)]">
           <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
             <Link
               href="/sbm/collections"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+              className="inline-flex items-center gap-2 text-sm text-neutral-600 transition-colors hover:text-[#ff8c00]"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to collections
             </Link>
             <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Folder className="h-4 w-4 text-accent" />
-                  Bookmark Collection
+                <div className="flex items-center gap-2 text-sm font-medium text-[#ff8c00]">
+                  <Folder className="h-4 w-4" />
+                  Bookmark collection
                 </div>
-                <h1 className="mt-2 text-3xl font-bold text-foreground">{collection.name}</h1>
-                <p className="mt-2 max-w-2xl text-muted-foreground">{collection.description}</p>
+                <h1 className="mt-2 text-3xl font-bold tracking-tight text-neutral-900">{collection.name}</h1>
+                <p className="mt-2 max-w-2xl text-neutral-600">{collection.description}</p>
               </div>
               <div className="flex items-center gap-2">
                 {collection.isPrivate && (
@@ -96,13 +96,13 @@ export default function BookmarkCollectionDetailPage() {
 
         <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
           {collection.bookmarks.length === 0 ? (
-            <Card className="border-border bg-card">
+            <Card className="border-neutral-200 bg-white shadow-sm">
               <CardContent className="p-8 text-center">
-                <h2 className="text-lg font-semibold text-foreground">No bookmarks yet</h2>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Start saving links to populate this collection.
+                <h2 className="text-lg font-semibold text-neutral-900">No bookmarks yet</h2>
+                <p className="mt-2 text-sm text-neutral-600">
+                  Save links from the feed or submit your own—this folder updates instantly.
                 </p>
-                <Button className="mt-6" asChild>
+                <Button className="mt-6 rounded-full bg-[#ff8c00] text-white hover:bg-[#e67e00]" asChild>
                   <Link href="/sbm">Explore bookmarks</Link>
                 </Button>
               </CardContent>

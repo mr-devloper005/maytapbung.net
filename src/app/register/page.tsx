@@ -9,14 +9,14 @@ import { REGISTER_PAGE_OVERRIDE_ENABLED, RegisterPageOverride } from '@/override
 function getRegisterConfig(kind: ReturnType<typeof getProductKind>) {
   if (kind === 'directory') {
     return {
-      shell: 'bg-[#f8fbff] text-slate-950',
-      panel: 'border border-slate-200 bg-white',
-      side: 'border border-slate-200 bg-slate-50',
-      muted: 'text-slate-600',
-      action: 'bg-slate-950 text-white hover:bg-slate-800',
+      shell: 'bg-neutral-50 text-neutral-900',
+      panel: 'border border-neutral-200 bg-white shadow-sm',
+      side: 'border border-neutral-200 bg-white',
+      muted: 'text-neutral-600',
+      action: 'bg-[#ff8c00] text-white hover:bg-[#e67e00]',
       icon: Building2,
-      title: 'Create a business-ready account',
-      body: 'List services, manage locations, and activate trust signals with a proper directory workflow.',
+      title: 'Create your listing workspace',
+      body: 'Publish structured listings, keep photos and contact paths current, and give seekers the same polished experience they see on the homepage.',
     }
   }
   if (kind === 'editorial') {
@@ -75,24 +75,32 @@ export default function RegisterPage() {
             <h1 className="mt-5 text-4xl font-semibold tracking-[-0.05em]">{config.title}</h1>
             <p className={`mt-5 text-sm leading-8 ${config.muted}`}>{config.body}</p>
             <div className="mt-8 grid gap-4">
-              {['Different onboarding per product family', 'No repeated one-size-fits-all shell', 'Profile, publishing, and discovery aligned'].map((item) => (
-                <div key={item} className="rounded-[1.5rem] border border-current/10 px-4 py-4 text-sm">{item}</div>
+              {[
+                'Orange-accented UI that mirrors the public directory',
+                'Local drafts stay in your browser until you publish',
+                'Support for categories, maps, and trust badges out of the box',
+              ].map((item) => (
+                <div key={item} className="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-4 text-sm text-neutral-700">
+                  {item}
+                </div>
               ))}
             </div>
           </div>
 
           <div className={`rounded-[2rem] p-8 ${config.panel}`}>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] opacity-70">Create account</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ff8c00]">Create account</p>
+            <h2 className="mt-2 text-2xl font-bold text-neutral-900">Join in a few fields</h2>
+            <p className={`mt-2 text-sm ${config.muted}`}>We only ask for the essentials to secure your workspace.</p>
             <form className="mt-6 grid gap-4">
-              <input className="h-12 rounded-xl border border-current/10 bg-transparent px-4 text-sm" placeholder="Full name" />
-              <input className="h-12 rounded-xl border border-current/10 bg-transparent px-4 text-sm" placeholder="Email address" />
-              <input className="h-12 rounded-xl border border-current/10 bg-transparent px-4 text-sm" placeholder="Password" type="password" />
-              <input className="h-12 rounded-xl border border-current/10 bg-transparent px-4 text-sm" placeholder="What are you creating or publishing?" />
-              <button type="submit" className={`inline-flex h-12 items-center justify-center rounded-full px-6 text-sm font-semibold ${config.action}`}>Create account</button>
+              <input className="h-12 rounded-xl border border-neutral-200 bg-neutral-50 px-4 text-sm text-neutral-900 placeholder:text-neutral-400" placeholder="Full name" />
+              <input className="h-12 rounded-xl border border-neutral-200 bg-neutral-50 px-4 text-sm text-neutral-900 placeholder:text-neutral-400" placeholder="Email address" />
+              <input className="h-12 rounded-xl border border-neutral-200 bg-neutral-50 px-4 text-sm text-neutral-900 placeholder:text-neutral-400" placeholder="Password" type="password" />
+              <input className="h-12 rounded-xl border border-neutral-200 bg-neutral-50 px-4 text-sm text-neutral-900 placeholder:text-neutral-400" placeholder="Primary business or brand name" />
+              <button type="submit" className={`inline-flex h-12 items-center justify-center rounded-full px-6 text-sm font-semibold shadow-sm ${config.action}`}>Create account</button>
             </form>
-            <div className={`mt-6 flex items-center justify-between text-sm ${config.muted}`}>
+            <div className={`mt-6 flex flex-col gap-2 text-sm sm:flex-row sm:items-center sm:justify-between ${config.muted}`}>
               <span>Already have an account?</span>
-              <Link href="/login" className="inline-flex items-center gap-2 font-semibold hover:underline">
+              <Link href="/login" className="inline-flex items-center gap-2 font-semibold text-[#ff8c00] hover:underline">
                 <Sparkles className="h-4 w-4" />
                 Sign in
               </Link>
