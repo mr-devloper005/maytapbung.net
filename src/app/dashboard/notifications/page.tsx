@@ -1,4 +1,4 @@
-﻿import Link from 'next/link'
+import Link from 'next/link'
 import { PageShell } from '@/components/shared/page-shell'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -22,7 +22,7 @@ export default function DashboardNotificationsPage() {
     >
       <div className="grid gap-4">
         {notifications.map((note) => (
-          <Card key={note.id} className="border-border bg-card">
+          <Card key={note.id} className="border-neutral-200 bg-white shadow-sm">
             <CardContent className="p-6">
               <div className="text-xs uppercase tracking-wide text-muted-foreground">{note.time}</div>
               <h2 className="mt-2 text-lg font-semibold text-foreground">{note.title}</h2>

@@ -56,7 +56,7 @@ export default function DashboardArticleDetailPage({ params }: { params: Promise
           </CardContent>
         </Card>
       )}
-      <Card className="border-border bg-card">
+      <Card className="border-neutral-200 bg-white shadow-sm">
         <CardContent className="p-6 space-y-4">
           <Badge variant="secondary">{article.category}</Badge>
           <p className="text-sm text-muted-foreground">Published {article.publishedAt}</p>

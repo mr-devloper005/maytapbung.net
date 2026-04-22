@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useState } from 'react'
 import Link from 'next/link'
@@ -21,18 +21,18 @@ export default function NewCollectionPage() {
 
   return (
     <PageShell
-      title="New Collection"
-      description="Organize your saved links into a curated folder."
+      title="New collection"
+      description="Name the lane, describe what belongs inside, and choose visibility—perfect for client research packs or internal onboarding."
       actions={
-        <Button variant="outline" asChild>
-          <Link href="/sbm/collections">Back to Collections</Link>
+        <Button variant="outline" className="rounded-full border-neutral-200" asChild>
+          <Link href="/sbm/collections">Back to collections</Link>
         </Button>
       }
     >
-      <Card className="border-border bg-card">
+      <Card className="border-neutral-200 bg-white shadow-sm">
         <CardContent className="p-6 space-y-4">
           <div>
-            <label className="text-sm font-medium text-foreground">Collection Name</label>
+            <label className="text-sm font-medium text-neutral-900">Collection name</label>
             <Input
               className="mt-2"
               placeholder="Design Systems"
@@ -41,7 +41,7 @@ export default function NewCollectionPage() {
             />
           </div>
           <div>
-            <label className="text-sm font-medium text-foreground">Description</label>
+            <label className="text-sm font-medium text-neutral-900">Description</label>
             <Textarea
               className="mt-2"
               placeholder="What belongs in this folder?"
@@ -51,12 +51,13 @@ export default function NewCollectionPage() {
           </div>
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-foreground">Private Collection</p>
-              <p className="text-xs text-muted-foreground">Only visible to you.</p>
+              <p className="text-sm font-medium text-neutral-900">Private collection</p>
+              <p className="text-xs text-neutral-600">Hidden from public lists—only you can open it.</p>
             </div>
             <Switch checked={isPrivate} onCheckedChange={setIsPrivate} />
           </div>
           <Button
+            className="rounded-full bg-[#ff8c00] text-white hover:bg-[#e67e00]"
             onClick={() => {
               if (!name.trim()) {
                 toast({ title: 'Name required', description: 'Give your collection a name.' })
@@ -77,9 +78,9 @@ export default function NewCollectionPage() {
               toast({ title: 'Collection created', description: 'Your collection is ready.' })
             }}
           >
-            Create Collection
+            Create collection
           </Button>
-          {saved && <p className="text-sm text-muted-foreground">Collection created.</p>}
+          {saved && <p className="text-sm text-neutral-600">Collection created and synced to this device.</p>}
         </CardContent>
       </Card>
     </PageShell>

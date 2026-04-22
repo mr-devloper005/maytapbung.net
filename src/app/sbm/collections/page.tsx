@@ -30,23 +30,25 @@ export default function BookmarkCollectionsPage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-neutral-50">
       <NavbarShell />
 
       <main>
-        <section className="border-b border-border bg-secondary/30">
+        <section className="border-b border-neutral-200 bg-white [background-image:radial-gradient(circle_at_15%_0%,rgba(255,140,0,0.08),transparent_50%)]">
           <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
             <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <h1 className="text-3xl font-bold text-foreground">Bookmark Collections</h1>
-                <p className="mt-2 text-muted-foreground">
-                  Organize saved links into curated folders for quick access.
+                <p className="text-sm font-medium text-[#ff8c00]">Collections</p>
+                <h1 className="mt-1 text-3xl font-bold tracking-tight text-neutral-900">Curate links like a lightweight CMS.</h1>
+                <p className="mt-2 max-w-2xl text-neutral-600">
+                  Bundle research, vendor shortlists, and launch checklists—share read-only links with clients or keep
+                  folders private for your crew.
                 </p>
               </div>
-              <Button className="gap-2" asChild>
+              <Button className="gap-2 rounded-full bg-[#ff8c00] px-5 text-white hover:bg-[#e67e00]" asChild>
                 <Link href="/sbm/collections/new">
                   <FolderPlus className="h-4 w-4" />
-                  New Collection
+                  New collection
                 </Link>
               </Button>
             </div>

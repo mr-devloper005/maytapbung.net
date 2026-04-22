@@ -1,4 +1,4 @@
-﻿import Link from 'next/link'
+import Link from 'next/link'
 import { PageShell } from '@/components/shared/page-shell'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -14,7 +14,7 @@ export default function ArticlePreviewPage() {
         </Button>
       }
     >
-      <Card className="border-border bg-card">
+      <Card className="border-neutral-200 bg-white shadow-sm">
         <CardContent className="p-6">
           <h2 className="text-2xl font-semibold text-foreground">Draft Title</h2>
           <p className="mt-3 text-sm text-muted-foreground">

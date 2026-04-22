@@ -202,7 +202,7 @@ export default function NewListingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-neutral-50">
       <NavbarShell />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -215,9 +215,10 @@ export default function NewListingPage() {
               </Link>
             </Button>
             <div>
-              <h1 className="text-2xl font-bold text-foreground">New Business Listing</h1>
-              <p className="text-sm text-muted-foreground">
-                Add your business to our directory
+              <h1 className="text-2xl font-bold text-neutral-900">New business listing</h1>
+              <p className="text-sm text-neutral-600">
+                Publish once—show up in search, maps, and curated collections with the same orange-forward brand
+                shell as the public site.
               </p>
             </div>
           </div>
@@ -226,8 +227,12 @@ export default function NewListingPage() {
               <Save className="h-4 w-4 mr-2" />
               {isSaving ? "Saving..." : "Save Draft"}
             </Button>
-            <Button onClick={handleSubmit} disabled={isSubmitting}>
-              {isSubmitting ? "Submitting..." : "Submit for Review"}
+            <Button
+              onClick={handleSubmit}
+              disabled={isSubmitting}
+              className="rounded-full bg-[#ff8c00] text-white hover:bg-[#e67e00]"
+            >
+              {isSubmitting ? "Submitting..." : "Submit for review"}
             </Button>
           </div>
         </div>
@@ -239,9 +244,9 @@ export default function NewListingPage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm"
             >
-              <h2 className="text-lg font-semibold text-foreground mb-6">
+              <h2 className="text-lg font-semibold text-neutral-900 mb-6">
                 Basic Information
               </h2>
               <div className="space-y-6">
@@ -289,9 +294,9 @@ export default function NewListingPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm"
             >
-              <h2 className="text-lg font-semibold text-foreground mb-6">
+              <h2 className="text-lg font-semibold text-neutral-900 mb-6">
                 Contact Information
               </h2>
               <div className="grid gap-6 sm:grid-cols-2">
@@ -367,9 +372,9 @@ export default function NewListingPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm"
             >
-              <h2 className="text-lg font-semibold text-foreground mb-6">
+              <h2 className="text-lg font-semibold text-neutral-900 mb-6">
                 <Clock className="h-5 w-5 inline mr-2" />
                 Business Hours
               </h2>
@@ -426,7 +431,7 @@ export default function NewListingPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm"
             >
               <Label className="mb-4 block">
                 <ImageIcon className="h-4 w-4 inline mr-2" />
@@ -494,8 +499,8 @@ export default function NewListingPage() {
                   ))}
                 </div>
               ) : (
-                <div className="aspect-video rounded-lg border-2 border-dashed border-border flex flex-col items-center justify-center gap-2 cursor-pointer hover:border-primary/50 transition-colors">
-                  <ImageIcon className="h-8 w-8 text-muted-foreground" />
+                <div className="aspect-video rounded-lg border-2 border-dashed border-neutral-200 flex flex-col items-center justify-center gap-2 cursor-pointer hover:border-[#ff8c00]/50 transition-colors">
+                  <ImageIcon className="h-8 w-8 text-neutral-500" />
                   <p className="text-sm text-muted-foreground text-center">
                     Add photos of your business
                   </p>
@@ -511,9 +516,9 @@ export default function NewListingPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm"
             >
-              <h3 className="font-semibold text-foreground mb-4">
+              <h3 className="font-semibold text-neutral-900 mb-4">
                 Submission Guidelines
               </h3>
               <ul className="space-y-2 text-sm text-muted-foreground">

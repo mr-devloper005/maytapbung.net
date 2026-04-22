@@ -32,7 +32,7 @@ export default function CareersPage() {
       <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
         <div className="space-y-4">
           {roles.map((role) => (
-            <Card key={role.title} className="border-border bg-card">
+            <Card key={role.title} className="border-neutral-200 bg-white shadow-sm">
               <CardContent className="p-6">
                 <div className="flex flex-wrap items-center gap-2">
                   <Badge variant="secondary">{role.level}</Badge>
@@ -47,7 +47,7 @@ export default function CareersPage() {
             </Card>
           ))}
         </div>
-        <Card className="border-border bg-card">
+        <Card className="border-neutral-200 bg-white shadow-sm">
           <CardContent className="p-6">
             <h3 className="text-lg font-semibold text-foreground">Why {SITE_CONFIG.name}</h3>
             <p className="mt-2 text-sm text-muted-foreground">
@@ -55,7 +55,7 @@ export default function CareersPage() {
             </p>
             <div className="mt-4 space-y-2 text-sm text-muted-foreground">
               {benefits.map((benefit) => (
-                <div key={benefit} className="rounded-md border border-border bg-secondary/40 px-3 py-2">
+                <div key={benefit} className="rounded-md border border-neutral-200 bg-neutral-50 px-3 py-2">
                   {benefit}
                 </div>
               ))}

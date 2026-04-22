@@ -1,7 +1,25 @@
 import type { User, Article, Listing, ClassifiedAd, Comment, Bookmark, BookmarkCollection, Notification, Category, Testimonial, DashboardStats, TeamMember, CommunityEvent, CommunityGroup, PressAsset, ApiEndpoint, FAQItem, BlogPost, PressCoverage } from '@/types'
 
-// Mock Users
-export const mockUsers: User[] = []
+// Mock Users (indices 0–4 referenced across articles, listings, testimonials, etc.)
+const mockUserSeed = (id: string, name: string, email: string, avatar: string): User => ({
+  id,
+  name,
+  email,
+  avatar,
+  bio: '',
+  joinedDate: 'January 2025',
+  followers: 120,
+  following: 48,
+  isVerified: true,
+})
+
+export const mockUsers: User[] = [
+  mockUserSeed('user-0', 'Alex Rivera', 'alex@example.com', 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop'),
+  mockUserSeed('user-1', 'Jordan Lee', 'jordan@example.com', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop'),
+  mockUserSeed('user-2', 'Sam Morgan', 'sam@example.com', 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop'),
+  mockUserSeed('user-3', 'Riley Chen', 'riley@example.com', 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop'),
+  mockUserSeed('user-4', 'Taylor Brooks', 'taylor@example.com', 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop'),
+]
 
 export const currentUser: User = mockUsers[0]
 
@@ -724,7 +742,7 @@ export const mockTestimonials: Testimonial[] = [
   },
   {
     id: '2',
-    content: 'The best publishing platform I\'ve used. The reading experience rivals Medium, and the community engagement features are outstanding.',
+    content: 'We replaced a cluttered marketplace with this directory layout—buyers finally see the details that matter before they call.',
     author: mockUsers[2],
     rating: 5,
     company: 'Creative Agency',
@@ -732,7 +750,7 @@ export const mockTestimonials: Testimonial[] = [
   },
   {
     id: '3',
-    content: 'Sold my items within days of listing. The classified ads section is well-designed and attracts serious buyers.',
+    content: 'Our field teams use the cards daily to shortlist vendors; the orange CTAs make the next step obvious for everyone.',
     author: mockUsers[3],
     rating: 4,
     company: 'Freelance',

@@ -108,91 +108,106 @@ export function Navbar() {
   const isDirectoryProduct = recipe.homeLayout === 'listing-home' || recipe.homeLayout === 'classified-home'
 
   if (isDirectoryProduct) {
-    const palette = directoryPalette[(recipe.brandPack === 'market-utility' ? 'market-utility' : 'directory-clean') as keyof typeof directoryPalette]
+    const directoryLinks = [
+      { name: 'Listings', href: '/listings', icon: Building2 },
+      { name: 'About', href: '/about', icon: FileText },
+      { name: 'Find', href: '/search', icon: Search },
+      { name: 'Contact', href: '/contact', icon: MapPin },
+    ] as const
 
     return (
-      <header className={cn('sticky top-0 z-50 w-full', palette.shell)}>
-        <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-          <div className="flex min-w-0 items-center gap-4">
-            <Link href="/" className="flex shrink-0 items-center gap-3">
-              <div className={cn('flex h-12 w-12 items-center justify-center overflow-hidden p-1.5', palette.logo)}>
-                <img src="/favicon.png?v=20260401" alt={`${SITE_CONFIG.name} logo`} width="48" height="48" className="h-full w-full object-contain" />
-              </div>
-              <div className="min-w-0 hidden sm:block">
-                <span className="block truncate text-xl font-semibold">{SITE_CONFIG.name}</span>
-                <span className="block text-[10px] uppercase tracking-[0.24em] opacity-60">{siteContent.navbar.tagline}</span>
-              </div>
-            </Link>
-
-            <div className="hidden items-center gap-5 xl:flex">
-              {primaryNavigation.slice(0, 4).map((task) => {
-                const isActive = pathname.startsWith(task.route)
-                return (
-                  <Link key={task.key} href={task.route} className={cn('text-sm font-semibold transition-colors', isActive ? 'text-foreground' : palette.nav)}>
-                    {task.label}
-                  </Link>
-                )
-              })}
+      <header className="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white/95 text-neutral-900 shadow-sm backdrop-blur-md">
+        <nav className="relative mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
+          <Link href="/" className="flex shrink-0 items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl border border-neutral-200 bg-white p-1.5 shadow-sm">
+              <img src="/favicon.png?v=20260401" alt={`${SITE_CONFIG.name} logo`} width="44" height="44" className="h-full w-full object-contain" />
             </div>
-          </div>
-
-          <div className="hidden min-w-0 flex-1 items-center justify-center lg:flex">
-            <div className={cn('flex w-full max-w-xl items-center gap-3 rounded-full px-4 py-3', palette.search)}>
-              <Search className="h-4 w-4" />
-              <span className="text-sm">Find businesses, spaces, and local services</span>
-              <div className="ml-auto hidden items-center gap-1 text-xs opacity-75 md:flex">
-                <MapPin className="h-3.5 w-3.5" />
-                Local discovery
-              </div>
+            <div className="min-w-0 hidden sm:block">
+              <span className="block truncate text-lg font-bold tracking-tight">{SITE_CONFIG.name}</span>
+              <span className="block text-[10px] font-semibold uppercase tracking-[0.22em] text-neutral-500">{siteContent.navbar.tagline}</span>
             </div>
+          </Link>
+
+          <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 lg:flex">
+            {directoryLinks.map((item) => {
+              const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`)
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn('text-sm font-semibold transition-colors', isActive ? 'text-[#ff8c00]' : 'text-neutral-600 hover:text-neutral-900')}
+                >
+                  {item.name}
+                </Link>
+              )
+            })}
           </div>
 
           <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-            {primaryTask ? (
-              <Link href={primaryTask.route} className="hidden items-center gap-2 rounded-full border border-current/10 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] opacity-75 md:inline-flex">
-                <Sparkles className="h-3.5 w-3.5" />
-                {primaryTask.label}
-              </Link>
-            ) : null}
-
             {isAuthenticated ? (
-              <NavbarAuthControls />
+              <NavbarAuthControls variant="directory" />
             ) : (
               <div className="hidden items-center gap-2 md:flex">
-                <Button variant="ghost" size="sm" asChild className="rounded-full px-4">
-                  <Link href="/login">Sign In</Link>
-                </Button>
-                <Button size="sm" asChild className={cn('rounded-full', palette.cta)}>
+                <Button variant="ghost" size="sm" asChild className="rounded-full px-3 text-sm font-semibold text-neutral-700 hover:bg-neutral-100">
                   <Link href="/register">
                     <Plus className="mr-1 h-4 w-4" />
-                    Add Listing
+                    Add listing
                   </Link>
+                </Button>
+                <Button size="sm" asChild className="rounded-full bg-[#ff8c00] px-5 text-sm font-semibold text-white shadow-sm hover:bg-[#e67e00]">
+                  <Link href="/login">Login</Link>
                 </Button>
               </div>
             )}
 
-            <Button variant="ghost" size="icon" className="rounded-full lg:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <Button variant="ghost" size="icon" className="rounded-full text-neutral-700 lg:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
         </nav>
 
         {isMobileMenuOpen && (
-          <div className={palette.mobile}>
-            <div className="space-y-2 px-4 py-4">
-              <div className={cn('mb-3 flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium', palette.search)}>
+          <div className="border-t border-neutral-200 bg-white lg:hidden">
+            <div className="space-y-1 px-4 py-4">
+              <Link
+                href="/search"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="mb-3 flex items-center gap-3 rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm font-semibold text-neutral-700"
+              >
                 <Search className="h-4 w-4" />
-                Find businesses, spaces, and services
-              </div>
-              {mobileNavigation.map((item) => {
-                const isActive = pathname.startsWith(item.href)
+                Search listings
+              </Link>
+              {directoryLinks.map((item) => {
+                const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`)
                 return (
-                  <Link key={item.name} href={item.href} onClick={() => setIsMobileMenuOpen(false)} className={cn('flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold transition-colors', isActive ? 'bg-foreground text-background' : palette.post)}>
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={cn(
+                      'flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold transition-colors',
+                      isActive ? 'bg-neutral-900 text-white' : 'text-neutral-800 hover:bg-neutral-100',
+                    )}
+                  >
                     <item.icon className="h-5 w-5" />
                     {item.name}
                   </Link>
                 )
               })}
+              {!isAuthenticated ? (
+                <div className="mt-4 flex flex-col gap-2 border-t border-neutral-200 pt-4">
+                  <Button asChild variant="outline" className="w-full rounded-xl border-neutral-200">
+                    <Link href="/register" onClick={() => setIsMobileMenuOpen(false)}>
+                      Add listing
+                    </Link>
+                  </Button>
+                  <Button asChild className="w-full rounded-xl bg-[#ff8c00] font-semibold text-white hover:bg-[#e67e00]">
+                    <Link href="/login" onClick={() => setIsMobileMenuOpen(false)}>
+                      Login
+                    </Link>
+                  </Button>
+                </div>
+              ) : null}
             </div>
           </div>
         )}
