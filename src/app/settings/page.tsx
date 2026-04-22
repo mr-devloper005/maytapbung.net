@@ -236,11 +236,12 @@ export default function SettingsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-neutral-50 text-neutral-900">
       <NavbarShell />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-3xl font-bold text-foreground mb-8">Settings</h1>
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#ff8c00]">Account</p>
+        <h1 className="mb-8 text-3xl font-bold tracking-tight text-neutral-900">Settings</h1>
 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar */}
@@ -250,10 +251,10 @@ export default function SettingsPage() {
                 <button
                   key={section.id}
                   onClick={() => setActiveSection(section.id)}
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-colors ${
+                  className={`flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left transition-colors ${
                     activeSection === section.id
-                      ? "bg-primary/10 text-primary"
-                      : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                      ? "bg-[#ff8c00]/12 font-semibold text-[#cc7000]"
+                      : "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900"
                   }`}
                 >
                   <section.icon className="h-5 w-5" />
@@ -279,16 +280,16 @@ export default function SettingsPage() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.2 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm"
             >
               {/* Profile Section */}
               {activeSection === "profile" && (
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-xl font-semibold text-foreground mb-1">
+                    <h2 className="text-xl font-semibold text-neutral-900 mb-1">
                       Profile Information
                     </h2>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-neutral-600">
                       Update your personal information and profile picture.
                     </p>
                   </div>
@@ -336,7 +337,7 @@ export default function SettingsPage() {
                       >
                         Upload new photo
                       </Button>
-                      <p className="text-xs text-muted-foreground mt-2">
+                      <p className="text-xs text-neutral-600 mt-2">
                         JPG, PNG or GIF. Max size 2MB.
                       </p>
                     </div>
@@ -345,7 +346,7 @@ export default function SettingsPage() {
                   <Separator />
 
                   <div className="space-y-4">
-                    <div className="relative overflow-hidden rounded-xl border border-border">
+                    <div className="relative overflow-hidden rounded-xl border border-neutral-200">
                       <div
                         className="h-32 w-full bg-cover bg-center"
                         style={{
@@ -374,7 +375,7 @@ export default function SettingsPage() {
                       >
                         Upload cover image
                       </Button>
-                      <span className="text-xs text-muted-foreground">
+                      <span className="text-xs text-neutral-600">
                         Recommended size 1280x320.
                       </span>
                     </div>
@@ -412,7 +413,7 @@ export default function SettingsPage() {
                         rows={4}
                         disabled={!isEditingProfile}
                       />
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-xs text-neutral-600">
                         Brief description for your profile. Max 160 characters.
                       </p>
                     </div>
@@ -462,10 +463,10 @@ export default function SettingsPage() {
               {activeSection === "notifications" && (
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-xl font-semibold text-foreground mb-1">
+                    <h2 className="text-xl font-semibold text-neutral-900 mb-1">
                       Notification Preferences
                     </h2>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-neutral-600">
                       Manage how you receive notifications.
                     </p>
                   </div>
@@ -476,7 +477,7 @@ export default function SettingsPage() {
                     <div className="flex items-center justify-between">
                       <div className="space-y-0.5">
                         <Label>Email notifications</Label>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm text-neutral-600">
                           Receive email notifications for important updates.
                         </p>
                       </div>
@@ -488,7 +489,7 @@ export default function SettingsPage() {
                     <div className="flex items-center justify-between">
                       <div className="space-y-0.5">
                         <Label>Push notifications</Label>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm text-neutral-600">
                           Get push notifications on your devices.
                         </p>
                       </div>
@@ -500,7 +501,7 @@ export default function SettingsPage() {
                     <div className="flex items-center justify-between">
                       <div className="space-y-0.5">
                         <Label>Marketing emails</Label>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm text-neutral-600">
                           Receive emails about new features and promotions.
                         </p>
                       </div>
@@ -512,7 +513,7 @@ export default function SettingsPage() {
                     <div className="flex items-center justify-between">
                       <div className="space-y-0.5">
                         <Label>Weekly digest</Label>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm text-neutral-600">
                           Get a weekly summary of activity.
                         </p>
                       </div>
@@ -535,10 +536,10 @@ export default function SettingsPage() {
               {activeSection === "privacy" && (
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-xl font-semibold text-foreground mb-1">
+                    <h2 className="text-xl font-semibold text-neutral-900 mb-1">
                       Privacy & Security
                     </h2>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-neutral-600">
                       Control your privacy settings and account security.
                     </p>
                   </div>
@@ -566,7 +567,7 @@ export default function SettingsPage() {
                     <div className="flex items-center justify-between">
                       <div className="space-y-0.5">
                         <Label>Show email on profile</Label>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm text-neutral-600">
                           Allow others to see your email address.
                         </p>
                       </div>
@@ -579,7 +580,7 @@ export default function SettingsPage() {
                     <div className="flex items-center justify-between">
                       <div className="space-y-0.5">
                         <Label>Allow direct messages</Label>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm text-neutral-600">
                           Let others send you private messages.
                         </p>
                       </div>
@@ -592,16 +593,16 @@ export default function SettingsPage() {
                     <Separator />
 
                     <div>
-                      <h3 className="text-lg font-medium text-foreground mb-4">
+                      <h3 className="text-lg font-medium text-neutral-900 mb-4">
                         Danger Zone
                       </h3>
                       <div className="p-4 border border-destructive/20 rounded-lg bg-destructive/5">
                         <div className="flex items-center justify-between">
                           <div>
-                            <p className="font-medium text-foreground">
+                            <p className="font-medium text-neutral-900">
                               Delete account
                             </p>
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-sm text-neutral-600">
                               Permanently delete your account and all data.
                             </p>
                           </div>
@@ -635,10 +636,10 @@ export default function SettingsPage() {
               {activeSection === "appearance" && (
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-xl font-semibold text-foreground mb-1">
+                    <h2 className="text-xl font-semibold text-neutral-900 mb-1">
                       Appearance
                     </h2>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-neutral-600">
                       Customize how the platform looks for you.
                     </p>
                   </div>
@@ -654,7 +655,7 @@ export default function SettingsPage() {
                           className={`p-4 border rounded-lg text-center transition-colors ${
                             theme === themeOption
                               ? "border-primary bg-primary/10"
-                              : "border-border hover:border-muted-foreground"
+                              : "border-neutral-200 hover:border-neutral-400"
                           }`}
                           onClick={() => handleAppearanceChange(themeOption)}
                         >
@@ -679,10 +680,10 @@ export default function SettingsPage() {
               {activeSection === "language" && (
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-xl font-semibold text-foreground mb-1">
+                    <h2 className="text-xl font-semibold text-neutral-900 mb-1">
                       Language & Region
                     </h2>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-neutral-600">
                       Set your preferred language and regional settings.
                     </p>
                   </div>

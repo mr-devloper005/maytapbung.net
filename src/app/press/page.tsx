@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useState } from 'react'
 import Image from 'next/image'
@@ -27,7 +27,7 @@ export default function PressPage() {
       description="Media resources, brand assets, and press coverage."
     >
       <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-        <Card className="border-border bg-card">
+        <Card className="border-neutral-200 bg-white shadow-sm">
           <CardContent className="p-6 space-y-3">
             <h2 className="text-lg font-semibold text-foreground">Press Kit</h2>
             <p className="text-sm text-muted-foreground">
@@ -35,7 +35,7 @@ export default function PressPage() {
             </p>
             <div className="grid gap-2">
               {mockPressAssets.map((asset) => (
-                <div key={asset.id} className="rounded-lg border border-border bg-secondary/40 px-4 py-3">
+                <div key={asset.id} className="rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3">
                   <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                     <div>
                       <p className="text-sm font-medium text-foreground">{asset.title}</p>
@@ -66,7 +66,7 @@ export default function PressPage() {
         </Card>
         <div className="space-y-4">
           {mockPressCoverage.map((item) => (
-            <Card key={item.id} className="border-border bg-card transition-transform hover:-translate-y-1">
+            <Card key={item.id} className="border-neutral-200 bg-white shadow-sm transition-transform hover:-translate-y-1">
               <CardContent className="p-6">
                 <div className="text-xs uppercase tracking-wide text-muted-foreground">{item.outlet}</div>
                 <p className="mt-2 text-sm text-foreground">{item.headline}</p>

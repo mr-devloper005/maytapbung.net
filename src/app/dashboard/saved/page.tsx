@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
@@ -206,7 +206,7 @@ export default function DashboardSavedPage() {
 
           <div className="mt-4 grid gap-4">
             {savedBookmarks.length > 0 && (
-              <Card className="border-border bg-card">
+              <Card className="border-neutral-200 bg-white shadow-sm">
                 <CardContent className="p-4 flex items-center gap-3">
                   <Checkbox
                     checked={allSelected}
@@ -218,7 +218,7 @@ export default function DashboardSavedPage() {
             )}
 
             {savedBookmarks.map((bookmark) => (
-              <Card key={bookmark.id} className="border-border bg-card">
+              <Card key={bookmark.id} className="border-neutral-200 bg-white shadow-sm">
                 <CardContent className="p-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                   <div className="flex items-start gap-3">
                     <Checkbox
@@ -261,7 +261,7 @@ export default function DashboardSavedPage() {
             <>
               <div className="mt-4 grid gap-4">
                 {savedArticles.map((article) => (
-                  <Card key={article.id} className="border-border bg-card">
+                  <Card key={article.id} className="border-neutral-200 bg-white shadow-sm">
                     <CardContent className="p-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                       <div>
                         <p className="text-sm font-semibold text-foreground">{article.title}</p>
@@ -317,7 +317,7 @@ export default function DashboardSavedPage() {
             <p className="mt-2 text-sm text-muted-foreground">No saved ads yet.</p>
           ) : (
             <div className="mt-4 space-y-4">
-              <Card className="border-border bg-card">
+              <Card className="border-neutral-200 bg-white shadow-sm">
                 <CardContent className="p-4 flex items-center gap-3">
                   <Checkbox
                     checked={allAdsSelected}
@@ -347,7 +347,7 @@ export default function DashboardSavedPage() {
               )}
 
               {savedAds.map((ad) => (
-                <Card key={ad.id} className="border-border bg-card">
+                <Card key={ad.id} className="border-neutral-200 bg-white shadow-sm">
                   <CardContent className="p-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                     <div className="flex items-start gap-3">
                       <Checkbox

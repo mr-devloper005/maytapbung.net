@@ -49,7 +49,7 @@ export default function DashboardArticleEditPage({ params }: { params: Promise<{
         </Button>
       }
     >
-      <Card className="border-border bg-card">
+      <Card className="border-neutral-200 bg-white shadow-sm">
         <CardContent className="p-6 space-y-4">
           <div>
             <label className="text-sm font-medium text-foreground">Title</label>

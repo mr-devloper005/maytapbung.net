@@ -1,4 +1,4 @@
-﻿import Link from 'next/link'
+import Link from 'next/link'
 import { PageShell } from '@/components/shared/page-shell'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -15,7 +15,7 @@ export default function DashboardSettingsPage() {
       }
     >
       <div className="grid gap-6 md:grid-cols-2">
-        <Card className="border-border bg-card">
+        <Card className="border-neutral-200 bg-white shadow-sm">
           <CardContent className="p-6">
             <h2 className="text-lg font-semibold text-foreground">Account</h2>
             <p className="mt-2 text-sm text-muted-foreground">Update email, password, and profile details.</p>
@@ -24,7 +24,7 @@ export default function DashboardSettingsPage() {
             </Button>
           </CardContent>
         </Card>
-        <Card className="border-border bg-card">
+        <Card className="border-neutral-200 bg-white shadow-sm">
           <CardContent className="p-6">
             <h2 className="text-lg font-semibold text-foreground">Notifications</h2>
             <p className="mt-2 text-sm text-muted-foreground">Control how you receive activity updates.</p>

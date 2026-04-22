@@ -4,21 +4,16 @@ import { useEffect, useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/components/ui/command'
 import { useToast } from '@/components/ui/use-toast'
-import { FileText, Plus, Tag, Bookmark, Settings, Search } from 'lucide-react'
+import { FileText, Plus, Tag, Settings, Search } from 'lucide-react'
 
 const quickLinks = [
-  { label: 'Go to Social Bookmarks', href: '/sbm', icon: Bookmark },
-  { label: 'Go to Articles', href: '/articles', icon: FileText },
   { label: 'Go to Listings', href: '/listings', icon: Tag },
+  { label: 'Open Search', href: '/search', icon: Search },
+  { label: 'Contact', href: '/contact', icon: FileText },
   { label: 'Go to Settings', href: '/settings', icon: Settings },
 ]
 
-const createActions = [
-  { label: 'Create Article', href: '/create/article', icon: Plus },
-  { label: 'Create Listing', href: '/create/listing', icon: Plus },
-  { label: 'Create Classified', href: '/create/classified', icon: Plus },
-  { label: 'Submit Bookmark', href: '/create/sbm', icon: Plus },
-]
+const createActions = [{ label: 'Create Listing', href: '/create/listing', icon: Plus }]
 
 export function CommandPalette() {
   const router = useRouter()

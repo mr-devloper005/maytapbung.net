@@ -189,7 +189,7 @@ export default function NewAdPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-neutral-50">
       <NavbarShell />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -202,9 +202,10 @@ export default function NewAdPage() {
               </Link>
             </Button>
             <div>
-              <h1 className="text-2xl font-bold text-foreground">Post New Ad</h1>
-              <p className="text-sm text-muted-foreground">
-                Create a classified ad to sell your items
+              <h1 className="text-2xl font-bold text-neutral-900">Post a new ad</h1>
+              <p className="text-sm text-neutral-600">
+                Ship a classified with crisp pricing, delivery notes, and imagery that matches the public marketplace
+                styling.
               </p>
             </div>
           </div>
@@ -213,8 +214,12 @@ export default function NewAdPage() {
               <Save className="h-4 w-4 mr-2" />
               {isSaving ? "Saving..." : "Save Draft"}
             </Button>
-            <Button onClick={handlePublish} disabled={isPublishing}>
-              {isPublishing ? "Publishing..." : "Publish Ad"}
+            <Button
+              onClick={handlePublish}
+              disabled={isPublishing}
+              className="rounded-full bg-[#ff8c00] text-white hover:bg-[#e67e00]"
+            >
+              {isPublishing ? "Publishing..." : "Publish ad"}
             </Button>
           </div>
         </div>
@@ -226,9 +231,9 @@ export default function NewAdPage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm"
             >
-              <h2 className="text-lg font-semibold text-foreground mb-6">
+              <h2 className="text-lg font-semibold text-neutral-900 mb-6">
                 Ad Details
               </h2>
               <div className="space-y-6">
@@ -298,9 +303,9 @@ export default function NewAdPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm"
             >
-              <h2 className="text-lg font-semibold text-foreground mb-6">
+              <h2 className="text-lg font-semibold text-neutral-900 mb-6">
                 <DollarSign className="h-5 w-5 inline mr-2" />
                 Pricing
               </h2>
@@ -360,9 +365,9 @@ export default function NewAdPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm"
             >
-              <h2 className="text-lg font-semibold text-foreground mb-6">
+              <h2 className="text-lg font-semibold text-neutral-900 mb-6">
                 <MapPin className="h-5 w-5 inline mr-2" />
                 Location
               </h2>
@@ -385,9 +390,9 @@ export default function NewAdPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm"
             >
-              <h2 className="text-lg font-semibold text-foreground mb-6">
+              <h2 className="text-lg font-semibold text-neutral-900 mb-6">
                 Contact Preferences
               </h2>
               <RadioGroup
@@ -439,7 +444,7 @@ export default function NewAdPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm"
             >
               <Label className="mb-4 block">
                 <ImageIcon className="h-4 w-4 inline mr-2" />
@@ -534,7 +539,7 @@ export default function NewAdPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm"
             >
               <Label className="mb-4 block">
                 <Tag className="h-4 w-4 inline mr-2" />
@@ -583,7 +588,7 @@ export default function NewAdPage() {
               transition={{ delay: 0.6 }}
               className="bg-primary/5 rounded-xl border border-primary/20 p-6"
             >
-              <h3 className="font-semibold text-foreground mb-4">
+              <h3 className="font-semibold text-neutral-900 mb-4">
                 Tips for a Great Ad
               </h3>
               <ul className="space-y-2 text-sm text-muted-foreground">

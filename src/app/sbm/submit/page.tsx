@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
@@ -110,19 +110,22 @@ export default function SubmitBookmarkPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-neutral-50">
       <NavbarShell />
 
       <main>
-        <section className="border-b border-border bg-secondary/30">
+        <section className="border-b border-neutral-200 bg-white [background-image:radial-gradient(circle_at_20%_0%,rgba(255,140,0,0.08),transparent_45%)]">
           <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Sparkles className="h-4 w-4 text-accent" />
-              Submit a Bookmark
+            <div className="flex items-center gap-2 text-sm font-medium text-[#ff8c00]">
+              <Sparkles className="h-4 w-4" />
+              Submit a bookmark
             </div>
-            <h1 className="mt-2 text-3xl font-bold text-foreground">Share a link with the community.</h1>
-            <p className="mt-2 text-muted-foreground">
-              Add a short description, pick a category, and tag it for easy discovery.
+            <h1 className="mt-2 text-3xl font-bold tracking-tight text-neutral-900">
+              Drop a link your team will actually reopen.
+            </h1>
+            <p className="mt-2 max-w-2xl text-neutral-600">
+              We surface bookmarks next to listings and profiles—add context, tags, and a category so the right people
+              find it fast.
             </p>
           </div>
         </section>
@@ -132,14 +135,14 @@ export default function SubmitBookmarkPage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="rounded-xl border border-border bg-card p-6"
+              className="rounded-xl border border-neutral-200 bg-white shadow-sm p-6"
             >
               <form
                 className="space-y-5"
                 onSubmit={handleSubmit}
               >
                 <div>
-                  <label className="text-sm font-medium text-foreground">URL</label>
+                  <label className="text-sm font-medium text-neutral-900">URL</label>
                   <Input
                     placeholder="https://"
                     className="mt-2"
@@ -148,7 +151,7 @@ export default function SubmitBookmarkPage() {
                   />
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-foreground">Title</label>
+                  <label className="text-sm font-medium text-neutral-900">Title</label>
                   <Input
                     placeholder="Give this link a clear title"
                     className="mt-2"
@@ -157,7 +160,7 @@ export default function SubmitBookmarkPage() {
                   />
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-foreground">Description</label>
+                  <label className="text-sm font-medium text-neutral-900">Description</label>
                   <Textarea
                     placeholder="Why is this link useful?"
                     className="mt-2 min-h-[140px]"
@@ -166,7 +169,7 @@ export default function SubmitBookmarkPage() {
                   />
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-foreground">Category</label>
+                  <label className="text-sm font-medium text-neutral-900">Category</label>
                   <Select value={category} onValueChange={setCategory}>
                     <SelectTrigger className="mt-2">
                       <SelectValue placeholder="Choose a category" />
@@ -197,7 +200,9 @@ export default function SubmitBookmarkPage() {
                   </div>
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <Button type="submit">Submit Bookmark</Button>
+                  <Button type="submit" className="rounded-full bg-[#ff8c00] px-6 text-white hover:bg-[#e67e00]">
+                    Submit bookmark
+                  </Button>
                   <Button
                     type="button"
                     variant="outline"
@@ -213,24 +218,25 @@ export default function SubmitBookmarkPage() {
                   </Button>
                 </div>
                 {statusMessage && (
-                  <p className="text-sm text-muted-foreground">{statusMessage}</p>
+                  <p className="text-sm text-neutral-600">{statusMessage}</p>
                 )}
               </form>
             </motion.div>
 
             <div className="space-y-6">
-              <div className="rounded-xl border border-border bg-secondary/30 p-5">
-                <h3 className="text-base font-semibold text-foreground">Submission Tips</h3>
-                <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                  <li>Keep titles short and descriptive.</li>
-                  <li>Explain the main takeaway in one sentence.</li>
-                  <li>Add 3-5 tags to improve discoverability.</li>
+              <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-5">
+                <h3 className="text-base font-semibold text-neutral-900">Submission tips</h3>
+                <ul className="mt-3 space-y-2 text-sm text-neutral-600">
+                  <li>Lead with the outcome—what will someone learn or ship after clicking?</li>
+                  <li>Pair a crisp title with one sentence of “why now.”</li>
+                  <li>Tag with tools, roles, and regions so search stays precise.</li>
                 </ul>
               </div>
-              <div className="rounded-xl border border-border bg-card p-5">
-                <h4 className="text-sm font-semibold text-foreground">Preview Checklist</h4>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Once submitted, your link will appear in Trending or Latest based on community votes.
+              <div className="rounded-xl border border-neutral-200 bg-white p-5 shadow-sm">
+                <h4 className="text-sm font-semibold text-neutral-900">What happens next</h4>
+                <p className="mt-2 text-sm text-neutral-600">
+                  Approved bookmarks surface in Latest first, then climb with saves and upvotes—no pay-to-play boost
+                  required.
                 </p>
               </div>
             </div>

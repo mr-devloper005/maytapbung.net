@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
@@ -143,7 +143,7 @@ export default function DashboardListingsPage() {
 
       <div className="grid gap-4">
         {userListings.length > 0 && (
-          <Card className="border-border bg-card">
+          <Card className="border-neutral-200 bg-white shadow-sm">
             <CardContent className="p-4 flex items-center gap-3">
               <Checkbox
                 checked={allSelected}
@@ -155,7 +155,7 @@ export default function DashboardListingsPage() {
         )}
 
         {userListings.map((listing) => (
-          <Card key={listing.id} className="border-border bg-card transition-transform hover:-translate-y-1">
+          <Card key={listing.id} className="border-neutral-200 bg-white shadow-sm transition-transform hover:-translate-y-1">
             <CardContent className="p-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div className="flex items-start gap-3">
                 <Checkbox
@@ -237,7 +237,7 @@ export default function DashboardListingsPage() {
           </Card>
         ))}
         {userListings.length === 0 && (
-          <Card className="border-border bg-card">
+          <Card className="border-neutral-200 bg-white shadow-sm">
             <CardContent className="p-8 text-center text-sm text-muted-foreground">
               No listings yet. Create your first listing to see it here.
             </CardContent>
