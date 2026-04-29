@@ -51,6 +51,10 @@ export default function ContactPage() {
   const { recipe } = getFactoryState()
   const productKind = getProductKind(recipe)
   const tone = getTone(productKind)
+  const contactEmail =
+    process.env.CONTACT_EMAIL?.trim() ||
+    process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() ||
+    'contact@example.com'
   const lanes =
     productKind === 'directory'
       ? [
@@ -102,6 +106,14 @@ export default function ContactPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ff8c00]">Message</p>
             <h2 className="mt-2 text-2xl font-bold text-neutral-900">Tell us what you need</h2>
             <p className={`mt-2 text-sm ${tone.muted}`}>We read every note and reply with concrete suggestions for your listings.</p>
+            <div className="mt-4">
+              <a
+                href={`mailto:${contactEmail}`}
+                className="inline-flex h-11 items-center justify-center rounded-full border border-neutral-200 bg-white px-5 text-sm font-semibold text-neutral-900 hover:bg-neutral-50"
+              >
+                Email us: {contactEmail}
+              </a>
+            </div>
             <form className="mt-6 grid gap-4">
               <input className="h-12 rounded-xl border border-neutral-200 bg-neutral-50 px-4 text-sm text-neutral-900 placeholder:text-neutral-400" placeholder="Your name" />
               <input className="h-12 rounded-xl border border-neutral-200 bg-neutral-50 px-4 text-sm text-neutral-900 placeholder:text-neutral-400" placeholder="Email address" />
