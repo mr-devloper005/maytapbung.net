@@ -192,7 +192,7 @@ export default function DashboardAdsPage() {
                   ) : (
                     <>
                       <h2 className="text-lg font-semibold text-foreground">{ad.title}</h2>
-                      <p className="text-sm text-muted-foreground">{ad.location} · ${ad.price.toLocaleString()}</p>
+                      <p className="text-sm text-muted-foreground">{ad.location}  -  ${ad.price.toLocaleString()}</p>
                     </>
                   )}
                 </div>
