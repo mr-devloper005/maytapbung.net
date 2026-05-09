@@ -3,15 +3,7 @@ import { PageShell } from "@/components/shared/page-shell";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { mockTeamMembers } from "@/data/mock-data";
 import { SITE_CONFIG } from "@/lib/site-config";
-
-const highlights = [
-  { label: "Active listings", value: "8.6k+" },
-  { label: "Cities with coverage", value: "120+" },
-  { label: "Monthly searches guided", value: "2M+" },
-];
 
 const values = [
   {
@@ -52,14 +44,6 @@ export default function AboutPage() {
             <p className="text-sm leading-relaxed text-neutral-600 sm:text-base">
               We stripped away noisy formats so the homepage, search, and detail pages all speak the same visual language—white space, neutral type, and confident orange calls-to-action that mirror how logistics and marketplace brands signal urgency without shouting.
             </p>
-            <div className="grid gap-4 sm:grid-cols-3">
-              {highlights.map((item) => (
-                <div key={item.label} className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4 text-center sm:text-left">
-                  <div className="text-2xl font-bold text-neutral-900">{item.value}</div>
-                  <div className="mt-1 text-xs font-medium uppercase tracking-wide text-neutral-500">{item.label}</div>
-                </div>
-              ))}
-            </div>
           </CardContent>
         </Card>
         <div className="space-y-4">
@@ -68,32 +52,6 @@ export default function AboutPage() {
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-neutral-900">{value.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-neutral-600">{value.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-
-      <div className="mt-14">
-        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#ff8c00]">Leadership</p>
-        <h2 className="mt-2 text-2xl font-bold text-neutral-900 sm:text-3xl">People behind the platform</h2>
-        <p className="mt-2 max-w-2xl text-neutral-600">Product, community, and partnerships—focused on keeping listings accurate and delightful.</p>
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {mockTeamMembers.map((member) => (
-            <Card key={member.id} className="border-neutral-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-              <CardContent className="p-6">
-                <div className="flex items-center gap-3">
-                  <Avatar className="h-12 w-12 border border-neutral-200">
-                    <AvatarImage src={member.avatar} alt={member.name} />
-                    <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <p className="text-sm font-semibold text-neutral-900">{member.name}</p>
-                    <p className="text-xs text-neutral-500">{member.role}</p>
-                  </div>
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-neutral-600">{member.bio}</p>
-                <p className="mt-3 text-xs font-medium text-[#ff8c00]">{member.location}</p>
               </CardContent>
             </Card>
           ))}
