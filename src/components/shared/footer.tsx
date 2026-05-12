@@ -4,7 +4,6 @@ import { SITE_CONFIG, type TaskKey } from '@/lib/site-config'
 import { siteContent } from '@/config/site.content'
 import { getFactoryState } from '@/design/factory/get-factory-state'
 import { FOOTER_OVERRIDE_ENABLED, FooterOverride } from '@/overrides/footer'
-import { FooterNewsletter } from '@/components/shared/footer-newsletter'
 
 const taskIcons: Record<TaskKey, any> = {
   article: FileText,
@@ -29,7 +28,6 @@ const footerLinks = {
     { name: 'About', href: '/about' },
     { name: 'Careers', href: '/careers' },
     { name: 'Contact', href: '/contact' },
-    { name: 'Press', href: '/press' },
   ],
   legal: [
     { name: 'Privacy', href: '/privacy' },
@@ -58,14 +56,6 @@ export function Footer() {
     return (
       <footer className="border-t border-neutral-200 bg-neutral-50 text-neutral-900">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-6 border-b border-neutral-200 pb-10 lg:flex-row lg:items-end lg:justify-between">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#ff8c00]">Newsletter</p>
-              <h3 className="mt-2 text-2xl font-bold tracking-tight">Join our listing digest</h3>
-              <p className="mt-2 max-w-md text-sm text-neutral-600">Curated directory updates, new categories, and tips for growing your presence.</p>
-            </div>
-            <FooterNewsletter />
-          </div>
           <div className="grid gap-10 py-10 sm:grid-cols-2 lg:grid-cols-3">
             <div>
               <Link href="/" className="flex items-center gap-2">
